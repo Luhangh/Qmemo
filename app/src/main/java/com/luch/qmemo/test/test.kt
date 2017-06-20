@@ -1,4 +1,4 @@
-package com.luch.qmemo
+package com.luch.qmemo.test
 
 /**
  * Creator lh on 2017/6/16 16:31.

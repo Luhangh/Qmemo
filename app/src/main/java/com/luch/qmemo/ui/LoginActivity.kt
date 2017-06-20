@@ -1,8 +1,6 @@
-package com.luch.qmemo
+package com.luch.qmemo.ui
 
 import android.Manifest.permission.READ_CONTACTS
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.annotation.TargetApi
 import android.app.LoaderManager.LoaderCallbacks
 import android.content.CursorLoader
@@ -14,15 +12,12 @@ import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.support.design.widget.Snackbar
-import android.support.design.widget.Snackbar.LENGTH_INDEFINITE
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import com.luch.qmemo.R.id.password
+import com.luch.qmemo.R
 import java.util.*
 
 /**
