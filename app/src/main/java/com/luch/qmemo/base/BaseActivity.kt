@@ -23,9 +23,9 @@ abstract class BaseActivity : Activity() {
 
     protected abstract fun bundLayout(): Int
 
-    protected abstract fun initView(): Int
+    protected abstract fun initView()
 
-    protected abstract fun initData(): Int
+    protected abstract fun initData()
 
 
     override fun onDestroy() {
