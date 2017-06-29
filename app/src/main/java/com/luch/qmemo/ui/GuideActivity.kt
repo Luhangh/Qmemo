@@ -1,6 +1,5 @@
 package com.luch.qmemo.ui
 
-import android.os.Bundle
 import com.luch.qmemo.R
 import com.luch.qmemo.base.BaseActivity
 

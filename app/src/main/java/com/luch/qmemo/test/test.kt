@@ -14,3 +14,12 @@ fun main(args: Array<String>) {
     val num :Int = 1
     print(num.MinusOne())
 }
+
+
+private fun init(){
+  /*   var mLogoImg: ImageView? = null
+    mLogoImg = findViewById(R.id.img_logo) as ImageView
+    startAnim()
+    mLogoImg!!.setOnClickListener { startAnim() }*/
+
+}

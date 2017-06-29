@@ -12,6 +12,7 @@ class QmeAppliption : Application() {
 
     private val isDug = false
 
+
     override fun onCreate() {
         super.onCreate()
     }

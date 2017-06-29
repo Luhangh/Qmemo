@@ -33,12 +33,12 @@ public class AppManager {
      */
     public void addActivity(Activity activity) {
         if (activityStack == null) {
-            activityStack = new Stack<Activity>();
+            activityStack = new Stack<>();
         }
         activityStack.add(activity);
         Object[] obj = activityStack.toArray();
-        for (int i = 0; i < obj.length; i++) {
-            Activity acti = (Activity) obj[i];
+        for (Object anObj : obj) {
+            Activity acti = (Activity) anObj;
         }
     }
 
@@ -66,7 +66,6 @@ public class AppManager {
         if (activity != null) {
             activityStack.remove(activity);
             activity.finish();
-            activity = null;
         }
     }
 
@@ -82,19 +81,11 @@ public class AppManager {
     }
 
     /**
-     * 除最顶层activity，结束所有顶层以下activity
-     */
-    public void finishActivityExceptLast() {
-
-    }
-
-    /**
      * 除第一个Activity页面外，结束所有activity
      * 修改了删除顺序
      */
     public void finishActivityExceptFirst() {
-        for (int i = 0; i < activityStack.size(); i++) {
-        }
+
         for (int i = activityStack.size(); i > 1; i--) {
             if (null != activityStack.get(i - 1)) {
                 activityStack.get(i - 1).finish();
@@ -117,8 +108,7 @@ public class AppManager {
      * 结束所有Activity
      */
     public void finishAllActivity() {
-        for (int i = activityStack.size(); i > 0; i--) {
-        }
+
         for (int i = activityStack.size(); i > 0; i--) {
 
             if (null != activityStack.get(i - 1)) {
@@ -142,7 +132,7 @@ public class AppManager {
                     Context.ACTIVITY_SERVICE);
             activityMgr.restartPackage(context.getPackageName());
             System.exit(0);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 }
