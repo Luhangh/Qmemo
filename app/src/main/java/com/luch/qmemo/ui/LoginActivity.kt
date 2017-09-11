@@ -2,6 +2,7 @@ package com.luch.qmemo.ui
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Build
 import android.text.TextUtils
@@ -85,7 +86,7 @@ class LoginActivity : BaseActivity() {
             mUser!!.error = getString(R.string.error_invalid_user)
             focusView = mUser
             cancel = true
-        }else{
+        } else {
             if (!isUser(email)) {
                 mUser!!.error = getString(R.string.error_incorrect__user)
                 focusView = mUser
@@ -116,20 +117,19 @@ class LoginActivity : BaseActivity() {
 
     private fun isUser(user: String): Boolean {
         //TODO: Replace this with your own logic
-        return user.length > 6
+        return user.length > 1
     }
 
     private fun isPasswordValid(password: String): Boolean {
         //TODO: Replace this with your own logic
-        return password.length > 6
+        return password.length > 1
     }
 
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<String, Int, Boolean>() {
 
         override fun doInBackground(vararg params: String?): Boolean {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             try {
-                Thread.sleep(2000)
+                Thread.sleep(1000)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -140,6 +140,8 @@ class LoginActivity : BaseActivity() {
             super.onPostExecute(result)
 
             if (result!!) {
+               var intent = Intent(this@LoginActivity,TabFragmentActivity::class.java)
+                startActivity(intent)
             }
 
         }
