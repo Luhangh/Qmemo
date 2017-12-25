@@ -6,7 +6,7 @@ import com.luch.qmemo.base.BaseActivity
 /**
  * Creator lh on 2017/6/20 11:37.
  * Email:3021634343@qq.com
- * Description:
+ * Description: 引导页
  */
 
 class GuideActivity : BaseActivity(){

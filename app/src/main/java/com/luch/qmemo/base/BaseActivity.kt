@@ -12,7 +12,7 @@ import com.luch.qmemo.utils.AppManager
  * Description:
  */
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
