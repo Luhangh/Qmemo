@@ -54,7 +54,7 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun initData() {
-
+        startAnim()
     }
 
 
