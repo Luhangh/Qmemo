@@ -33,11 +33,11 @@ class LoginActivity : BaseActivity() {
 
     @SuppressLint("WrongViewCast")
     override fun initView() {
-        mUser = findViewById(R.id.email) as EditText?
-        mPwd = findViewById(R.id.password) as EditText?
-        mLogo = findViewById(R.id.img_logo) as ImageView?
+        mUser = findViewById<EditText>(R.id.email)
+        mPwd = findViewById<EditText>(R.id.password)
+        mLogo = findViewById<ImageView>(R.id.img_logo)
         mLogo!!.setOnClickListener { startAnim() }
-        mLogin = findViewById(R.id.email_sign_in_button) as Button?
+        mLogin = findViewById<Button>(R.id.email_sign_in_button)
         mLogin!!.setOnClickListener { attemptLogin() }
         mPwd!!.setOnEditorActionListener(TextView.OnEditorActionListener { textView, id, keyEvent ->
             if (id == R.id.login || id == EditorInfo.IME_NULL) {

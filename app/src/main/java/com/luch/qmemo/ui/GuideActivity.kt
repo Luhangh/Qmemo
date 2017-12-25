@@ -14,16 +14,13 @@ class GuideActivity : BaseActivity(){
 
 
     override fun initView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun bundLayout(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return R.layout.activity_guide
     }
 
     override fun initData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
