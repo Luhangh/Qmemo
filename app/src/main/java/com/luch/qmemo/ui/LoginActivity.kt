@@ -59,9 +59,6 @@ class LoginActivity : BaseActivity() {
 
 
     private fun attemptLogin() {
-        if (mAuthTask != null) {
-            return
-        }
 
         // Reset errors.
         mUser!!.error = null
@@ -74,14 +71,12 @@ class LoginActivity : BaseActivity() {
         var cancel = false
         var focusView: View? = null
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password) || !isPasswordValid(password)) {
             mPwd!!.error = getString(R.string.error_invalid_password)
             focusView = mPwd
             cancel = true
         }
 
-        // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mUser!!.error = getString(R.string.error_invalid_user)
             focusView = mUser
@@ -95,12 +90,8 @@ class LoginActivity : BaseActivity() {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
             focusView!!.requestFocus()
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
             showProgress(true)
             mAuthTask = UserLoginTask(email, password)
             mAuthTask!!.execute()
