@@ -9,10 +9,7 @@ import android.text.TextUtils
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.luch.qmemo.R
 import com.luch.qmemo.base.BaseActivity
 
@@ -33,7 +30,7 @@ class LoginActivity : BaseActivity() {
 
     @SuppressLint("WrongViewCast")
     override fun initView() {
-        mUser = findViewById<EditText>(R.id.email)
+        mUser = findViewById<AutoCompleteTextView>(R.id.email)
         mPwd = findViewById<EditText>(R.id.password)
         mLogo = findViewById<ImageView>(R.id.img_logo)
         mLogo!!.setOnClickListener { startAnim() }
@@ -60,44 +57,56 @@ class LoginActivity : BaseActivity() {
 
     private fun attemptLogin() {
 
+        if (isInput()) {
+            showProgress(true)
+            mAuthTask = UserLoginTask(mUser.toString(), mPwd.toString())
+            mAuthTask!!.execute()
+        }
+    }
+
+
+    /**
+     * 判断输入
+     */
+    private fun isInput():Boolean{
+
         // Reset errors.
         mUser!!.error = null
         mPwd!!.error = null
 
         // Store values at the time of the login attempt.
-        val email = mUser!!.text.toString()
+        val user = mUser!!.text.toString()
         val password = mPwd!!.text.toString()
 
         var cancel = false
         var focusView: View? = null
 
-        if (!TextUtils.isEmpty(password) || !isPasswordValid(password)) {
+
+        if(TextUtils.isEmpty(user)){
+            mUser!!.error = getString(R.string.error_invalid_user)
+            focusView = mUser
+            cancel = true
+        }
+        if(TextUtils.isEmpty(password)){
             mPwd!!.error = getString(R.string.error_invalid_password)
             focusView = mPwd
             cancel = true
         }
-
-        if (TextUtils.isEmpty(email)) {
-            mUser!!.error = getString(R.string.error_invalid_user)
+        if (!isUser(user)){
+            mUser!!.error = getString(R.string.error_incorrect__user)
             focusView = mUser
             cancel = true
-        } else {
-            if (!isUser(email)) {
-                mUser!!.error = getString(R.string.error_incorrect__user)
-                focusView = mUser
-                cancel = true
-            }
         }
-
-        if (cancel) {
+        if (!isPasswordValid(password)){
+            mPwd!!.error = getString(R.string.error_invalid_password)
+            focusView = mPwd
+            cancel = true
+        }
+        if (cancel){
             focusView!!.requestFocus()
-        } else {
-            showProgress(true)
-            mAuthTask = UserLoginTask(email, password)
-            mAuthTask!!.execute()
         }
+        return !cancel
     }
-
     /**
      * Shows the progress UI and hides the login form.
      */
@@ -113,7 +122,7 @@ class LoginActivity : BaseActivity() {
 
     private fun isPasswordValid(password: String): Boolean {
         //TODO: Replace this with your own logic
-        return password.length > 1
+        return password.length > 4
     }
 
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<String, Int, Boolean>() {

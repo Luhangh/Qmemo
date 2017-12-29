@@ -1,9 +1,11 @@
 package com.luch.qmemo.ui
 
-import android.content.Intent
+import android.app.Fragment
+import android.app.FragmentManager
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import com.luch.qmemo.R
+import com.luch.qmemo.ui.fragment.IndexFragment
 import kotlinx.android.synthetic.main.activity_tabfragment.*
 
 /**
@@ -13,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_tabfragment.*
  */
 
 class TabFragmentActivity : FragmentActivity() {
+
+    private var fm: FragmentManager? = this.fragmentManager
+    private var index :IndexFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +30,11 @@ class TabFragmentActivity : FragmentActivity() {
         nav_bottom.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.item_tab_one -> {
-
+                    if (index ==null){
+                        index = IndexFragment()
+                    }
+                    fm.apply { index }
+                    fm.run { index }
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.item_tab_two -> {
@@ -33,8 +42,7 @@ class TabFragmentActivity : FragmentActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.item_tab_three -> {
-                    var intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
+
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> {
