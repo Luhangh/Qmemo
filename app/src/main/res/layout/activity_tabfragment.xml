@@ -5,7 +5,13 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:orientation="vertical">
+    <LinearLayout android:id="@+id/lin_content"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_above="@+id/nav_bottom"
+                  android:orientation="vertical">
 
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_bottom"
