@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_index.*
  * Description: 首页
  */
 
-class IndexFragment : BaseFragment() {
+class ThreeFragment : BaseFragment() {
 
     override fun attachLayoutRes(): Int {
         return R.layout.fragment_index

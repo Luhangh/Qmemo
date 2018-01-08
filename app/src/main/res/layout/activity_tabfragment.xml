@@ -5,6 +5,22 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bar_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+    >
+        <TextView
+            android:id="@+id/tv_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text=""
+            android:textSize="18sp"
+            android:textColor="@android:color/white" />
+    </android.support.v7.widget.Toolbar>
     <LinearLayout android:id="@+id/lin_content"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -18,9 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/holo_blue_light"
-        app:itemIconTint="@color/orange"
-        app:itemTextColor="@color/orange"
+        android:background="@android:color/background_light"
+        app:itemTextColor="@color/black"
         app:menu="@menu/nav_bottom_item">
     </android.support.design.widget.BottomNavigationView>
 </RelativeLayout>

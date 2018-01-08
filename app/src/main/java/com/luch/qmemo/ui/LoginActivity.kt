@@ -54,11 +54,14 @@ class LoginActivity : BaseActivity() {
         startAnim()
     }
 
-
+    /**
+     * 去登陆
+     */
     private fun attemptLogin() {
 
         if (isInput()) {
             showProgress(true)
+        }else{
             mAuthTask = UserLoginTask(mUser.toString(), mPwd.toString())
             mAuthTask!!.execute()
         }
@@ -68,7 +71,7 @@ class LoginActivity : BaseActivity() {
     /**
      * 判断输入
      */
-    private fun isInput():Boolean{
+    private fun isInput(): Boolean {
 
         // Reset errors.
         mUser!!.error = null
@@ -82,31 +85,32 @@ class LoginActivity : BaseActivity() {
         var focusView: View? = null
 
 
-        if(TextUtils.isEmpty(user)){
+        if (TextUtils.isEmpty(user)) {
             mUser!!.error = getString(R.string.error_invalid_user)
             focusView = mUser
             cancel = true
         }
-        if(TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             mPwd!!.error = getString(R.string.error_invalid_password)
             focusView = mPwd
             cancel = true
         }
-        if (!isUser(user)){
+        if (!isUser(user)) {
             mUser!!.error = getString(R.string.error_incorrect__user)
             focusView = mUser
             cancel = true
         }
-        if (!isPasswordValid(password)){
+        if (!isPasswordValid(password)) {
             mPwd!!.error = getString(R.string.error_invalid_password)
             focusView = mPwd
             cancel = true
         }
-        if (cancel){
+        if (cancel) {
             focusView!!.requestFocus()
         }
         return !cancel
     }
+
     /**
      * Shows the progress UI and hides the login form.
      */
@@ -140,7 +144,7 @@ class LoginActivity : BaseActivity() {
             super.onPostExecute(result)
 
             if (result!!) {
-               var intent = Intent(this@LoginActivity,TabFragmentActivity::class.java)
+                var intent = Intent(this@LoginActivity, TabFragmentActivity::class.java)
                 startActivity(intent)
             }
 

@@ -84,5 +84,8 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="tab_two">消息</string>
+    <string name="tab_one">首页</string>
+    <string name="tab_three">我的</string>
 
 </resources>

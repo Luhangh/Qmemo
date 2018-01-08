@@ -4,16 +4,16 @@
     <item android:id="@+id/item_tab_one"
           android:enabled="true"
           android:icon="@mipmap/ic_launcher_round"
-          android:title="首页"
+          android:title="@string/tab_one"
           app:showAsAction="ifRoom"></item>
     <item android:id="@+id/item_tab_two"
           android:enabled="true"
           android:icon="@mipmap/ic_launcher_round"
-          android:title="消息"
+          android:title="@string/tab_two"
           app:showAsAction="ifRoom"></item>
     <item android:id="@+id/item_tab_three"
           android:enabled="true"
           android:icon="@mipmap/ic_launcher_round"
-          android:title="我的"
+          android:title="@string/tab_three"
           app:showAsAction="ifRoom"></item>
 </menu>

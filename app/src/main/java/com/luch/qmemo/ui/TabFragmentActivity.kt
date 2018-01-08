@@ -1,18 +1,14 @@
 package com.luch.qmemo.ui
 
-import android.app.Fragment
-import android.app.FragmentManager
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
 import android.support.v4.app.FragmentActivity
-import android.widget.LinearLayout
+import android.support.v4.app.FragmentManager
 import com.luch.qmemo.R
 import com.luch.qmemo.ui.fragment.IndexFragment
+import com.luch.qmemo.ui.fragment.ThreeFragment
+import com.luch.qmemo.ui.fragment.TwoFragment
 import kotlinx.android.synthetic.main.activity_tabfragment.*
-import android.support.annotation.NonNull
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
-import android.support.v4.app.FragmentTransaction
-import android.view.MenuItem
 
 
 /**
@@ -23,34 +19,46 @@ import android.view.MenuItem
 
 class TabFragmentActivity : FragmentActivity() {
 
-    private var fm: FragmentManager? = this.fragmentManager
-    private var index :IndexFragment? = null
+    private var index: IndexFragment? = null
+    private var two: TwoFragment? = null
+    private var three: ThreeFragment? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabfragment)
+        init()
         nav_bottom.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-
+    fun init() {
+        val fragmentTrans = supportFragmentManager.beginTransaction()
+        index = IndexFragment()
+        two = TwoFragment()
+        three = ThreeFragment()
+        fragmentTrans.add(R.id.lin_content, index)
+        fragmentTrans.add(R.id.lin_content, two)
+        fragmentTrans.add(R.id.lin_content, three)
+        fragmentTrans.commit()
+    }
 
     private val mOnNavigationItemSelectedListener
             = OnNavigationItemSelectedListener { item ->
-        val ft = supportFragmentManager.beginTransaction()
+
         when (item.itemId) {
             R.id.item_tab_one -> {
-                if (index ==null){
-                    index = IndexFragment()
-                    ft.add(R.id.lin_content,index)
-                }
-
+                supportFragmentManager.beginTransaction().show(index).hide(two).hide(three).commit()
+                tv_bar_title.text = resources.getString(R.string.tab_one)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.item_tab_two -> {
+                supportFragmentManager.beginTransaction().show(two).hide(index).hide(three).commit()
+                tv_bar_title.text = resources.getString(R.string.tab_two)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.item_tab_three -> {
+                supportFragmentManager.beginTransaction().show(three).hide(two).hide(index).commit()
+                tv_bar_title.text = resources.getString(R.string.tab_three)
                 return@OnNavigationItemSelectedListener true
             }
         }

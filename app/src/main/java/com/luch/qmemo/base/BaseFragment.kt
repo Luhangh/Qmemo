@@ -1,8 +1,8 @@
 package com.luch.qmemo
 
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,28 +14,23 @@ import android.view.ViewGroup
 abstract class BaseFragment : Fragment() {
 
 
-    protected var mContext: Context? = null
 
     //缓存Fragment view
     private var mRootView: View? = null
     private var mIsMulti = false
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mContext = activity
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         if (mRootView == null) {
-            mRootView = inflater.inflate(attachLayoutRes(), null)
-            initViews()
-
+            mRootView = inflater.inflate(attachLayoutRes(), container, false)
         }
-        val parent = mRootView!!.parent as ViewGroup
-        parent?.removeView(mRootView)
         return mRootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

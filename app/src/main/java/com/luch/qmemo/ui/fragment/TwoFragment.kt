@@ -10,13 +10,14 @@ import kotlinx.android.synthetic.main.fragment_index.*
  * Description: 首页
  */
 
-class IndexFragment : BaseFragment() {
+class TwoFragment : BaseFragment() {
 
     override fun attachLayoutRes(): Int {
         return R.layout.fragment_index
     }
 
     override fun initViews() {
+
     }
 
     override fun updateViews(isRefresh: Boolean) {
