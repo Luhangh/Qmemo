@@ -19,6 +19,11 @@
         <item name="android:layout_height">45sp</item>
         <item name="android:background">@drawable/bottom_button_bg</item>
     </style>
+
+    <style name="ActivityTheme" parent="AlertDialog.AppCompat.Light">
+
+        <item name="android:background">@color/antiquewhite</item>
+    </style>
     <style name="AppTheme.Base" parent="Theme.AppCompat">
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
