@@ -88,4 +88,7 @@
     <string name="tab_one">首页</string>
     <string name="tab_three">我的</string>
 
+    <string name="jump_out">跳过</string>
+    <string name="let_exp">立即体验</string>
+
 </resources>
