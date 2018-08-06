@@ -1,4 +1,4 @@
-package com.luch.qmemo.greedao;
+package com.luch.qmemo.greendao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;

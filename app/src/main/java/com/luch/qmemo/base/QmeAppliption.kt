@@ -2,8 +2,8 @@ package com.luch.qmemo.base
 
 import android.app.Application
 import android.database.sqlite.SQLiteDatabase
-import com.luch.qmemo.greedao.DaoMaster
-import com.luch.qmemo.greedao.DaoSession
+import com.luch.qmemo.greendao.DaoMaster
+import com.luch.qmemo.greendao.DaoSession
 
 
 /**

@@ -1,4 +1,4 @@
-package com.luch.qmemo.greedao;
+package com.luch.qmemo.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
