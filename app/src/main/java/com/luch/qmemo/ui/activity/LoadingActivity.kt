@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_loading_layout.*
 class LoadingActivity : BaseActivity(), View.OnClickListener {
 
     //引导图片资源
-    private var pics: List<Int> = listOf(R.mipmap.login_logo, R.mipmap.ic_launcher, R.mipmap.login_logo)
+    private var pics: List<Int> = listOf(R.mipmap.guide_one, R.mipmap.guide_two, R.mipmap.guide_three)
 
     //底部小店图片
     private var dots: Array<ImageView>? = null
