@@ -1,4 +1,4 @@
-package com.luch.qmemo.ui.activity
+package com.luch.qmemo.ui.guide
 
 import android.content.Intent
 import android.support.v4.view.ViewPager
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import com.luch.qmemo.R
 import com.luch.qmemo.adaper.ViewPagerAdapter
 import com.luch.qmemo.base.BaseActivity
-import com.luch.qmemo.ui.LoginActivity
+import com.luch.qmemo.ui.user.LoginActivity
 import kotlinx.android.synthetic.main.activity_loading_layout.*
 
 /**

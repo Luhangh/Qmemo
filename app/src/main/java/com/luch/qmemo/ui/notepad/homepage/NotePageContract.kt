@@ -13,9 +13,13 @@ interface NotePageContract{
 
     interface View : BaseView<Presenter> {
 
+        fun loading()
+
+        fun OnitemClick()
+
     }
 
     interface Presenter : BasePresenter{
-
+        fun loadNoetTask()
     }
 }

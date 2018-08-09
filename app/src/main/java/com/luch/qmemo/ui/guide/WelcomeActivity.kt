@@ -1,13 +1,12 @@
-package com.luch.qmemo.ui.activity
+package com.luch.qmemo.ui.guide
 
 import android.content.Intent
-import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import com.luch.qmemo.R
 import com.luch.qmemo.base.BaseActivity
-import com.luch.qmemo.ui.LoginActivity
+import com.luch.qmemo.ui.user.LoginActivity
 import com.luch.qmemo.ui.TabFragmentActivity
 import kotlinx.android.synthetic.main.activity_welcome.*
 

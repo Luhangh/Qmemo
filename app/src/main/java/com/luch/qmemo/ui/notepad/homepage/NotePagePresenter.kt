@@ -1,7 +1,5 @@
 package com.luch.qmemo.ui.notepad.homepage
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.example.android.architecture.blueprints.todoapp.BasePresenter
 import com.example.android.architecture.blueprints.todoapp.BaseView
 
@@ -11,16 +9,26 @@ import com.example.android.architecture.blueprints.todoapp.BaseView
  * Description: Listens to user actions from the UI ([NoteHomepageFragment]), retrieves the data and updates
  * the UI as required.
  */
-interface NotePagePresenter(val view: NotePageContract.View) :NotePageContract.Presenter {
+class NotePagePresenter(val view: NotePageContract.View) : NotePageContract.Presenter {
+
+    //加载笔记本
+    override fun loadNoetTask() {
+
+    }
+
+    override fun start() {
+
+    }
 
     init {
         view.presenter = this
     }
-    interface View : BaseView<Presenter> {
+
+    interface View : BaseView<NotePageContract.Presenter> {
 
     }
 
-    interface Presenter : BasePresenter{
+    interface Presenter : BasePresenter {
 
     }
 

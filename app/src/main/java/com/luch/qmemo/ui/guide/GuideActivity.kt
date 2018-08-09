@@ -1,4 +1,4 @@
-package com.luch.qmemo.ui
+package com.luch.qmemo.ui.guide
 
 import com.luch.qmemo.R
 import com.luch.qmemo.base.BaseActivity

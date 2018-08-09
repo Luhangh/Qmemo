@@ -1,4 +1,4 @@
-package com.luch.qmemo.ui
+package com.luch.qmemo.ui.user
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import com.luch.qmemo.R
 import com.luch.qmemo.base.BaseActivity
+import com.luch.qmemo.ui.TabFragmentActivity
 
 /**
  * A login screen that offers login via email/password.
@@ -22,7 +23,7 @@ class LoginActivity : BaseActivity() {
     private var mPwd: EditText? = null
     private var mLogo: ImageView? = null
     private var mLogin: Button? = null
-    private var mAuthTask: LoginActivity.UserLoginTask? = null
+    private var mAuthTask: UserLoginTask? = null
 
     override fun bundLayout(): Int {
         return R.layout.activity_login
@@ -59,12 +60,13 @@ class LoginActivity : BaseActivity() {
      */
     private fun attemptLogin() {
 
-        if (isInput()) {
+        /*if (isInput()) {
             showProgress(true)
         }else{
-            mAuthTask = UserLoginTask(mUser.toString(), mPwd.toString())
-            mAuthTask!!.execute()
-        }
+
+        }*/
+        mAuthTask = UserLoginTask(mUser.toString(), mPwd.toString())
+        mAuthTask!!.execute()
     }
 
 
@@ -132,11 +134,11 @@ class LoginActivity : BaseActivity() {
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<String, Int, Boolean>() {
 
         override fun doInBackground(vararg params: String?): Boolean {
-            try {
+            /*try {
                 Thread.sleep(1000)
             } catch (e: Exception) {
                 e.printStackTrace()
-            }
+            }*/
             return true
         }
 
