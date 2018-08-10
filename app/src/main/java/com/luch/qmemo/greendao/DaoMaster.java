@@ -22,11 +22,25 @@ public class DaoMaster extends AbstractDaoMaster {
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
         UserDao.createTable(db, ifNotExists);
+        NoteBookDao.createTable(db, ifNotExists);
+        BalanceDao.createTable(db, ifNotExists);
+        IncomeDao.createTable(db, ifNotExists);
+        IncomeChannelDao.createTable(db, ifNotExists);
+        NoteDao.createTable(db, ifNotExists);
+        SpendingDao.createTable(db, ifNotExists);
+        SpendingChannelDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
         UserDao.dropTable(db, ifExists);
+        NoteBookDao.dropTable(db, ifExists);
+        BalanceDao.dropTable(db, ifExists);
+        IncomeDao.dropTable(db, ifExists);
+        IncomeChannelDao.dropTable(db, ifExists);
+        NoteDao.dropTable(db, ifExists);
+        SpendingDao.dropTable(db, ifExists);
+        SpendingChannelDao.dropTable(db, ifExists);
     }
 
     /**
@@ -46,6 +60,13 @@ public class DaoMaster extends AbstractDaoMaster {
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
         registerDaoClass(UserDao.class);
+        registerDaoClass(NoteBookDao.class);
+        registerDaoClass(BalanceDao.class);
+        registerDaoClass(IncomeDao.class);
+        registerDaoClass(IncomeChannelDao.class);
+        registerDaoClass(NoteDao.class);
+        registerDaoClass(SpendingDao.class);
+        registerDaoClass(SpendingChannelDao.class);
     }
 
     public DaoSession newSession() {
