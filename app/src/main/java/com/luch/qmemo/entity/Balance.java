@@ -17,7 +17,7 @@ public class Balance {
     private Long id;
 
     /**
-     * 用户id
+     * 用户id3
      */
     private String userId;
 
